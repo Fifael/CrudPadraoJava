@@ -12,10 +12,24 @@ public class Cantor {
 
     }
 
+    public Cantor(int id, String nomeCantor, int idade) throws Exception {
+        this.id = id;
+        this.nomeCantor = nomeCantor;
+        this.idade = idade;
+
+        PreparedStatement stmt = DAO.createConnection().prepareStatement(
+            "INSERT INTO cantor (idCantor, nomeCantor, idade) VALUES (?,?,?);");
+            stmt.setInt(1, id);
+            stmt.setString(2, nomeCantor);
+            stmt.setInt(3, idade);
+            stmt.execute();
+            DAO.closeConnection();
+    }
+
     public Cantor(String nomeCantor, int idade) throws Exception {
         this.nomeCantor = nomeCantor;
         this.idade = idade;
-         
+        
         PreparedStatement stmt = DAO.createConnection().prepareStatement(
             "INSERT INTO cantor (nomeCantor, idade) VALUES (?,?);");
             stmt.setString(1, this.getNomeCantor());
@@ -24,19 +38,7 @@ public class Cantor {
             DAO.closeConnection();
     }
 
-    public Cantor(int id, String nomeCantor, int idade) throws Exception {
-        this.id = id;
-        this.nomeCantor = nomeCantor;
-        this.idade = idade;
-
-        PreparedStatement stmt = DAO.createConnection().prepareStatement(
-            "INSERT INTO cantor (id, nomeCantor, idade) VALUES (?,?,?,);");
-            stmt.setInt(1, this.getId());
-            stmt.setString(1, this.getNomeCantor());
-            stmt.setInt(2, this.getIdade());
-            stmt.execute();
-            DAO.closeConnection();
-    }
+    
 
     public int getId() {
         return id;
@@ -107,9 +109,9 @@ public class Cantor {
             System.out.println(
                 "=======================================" + "\n" +
                 "Id: " + 
-                rs.getInt("id") + "\n" +
+                rs.getInt("idCantor") + "\n" +
                 "Nome: " +
-                rs.getString("nome") + "\n" +
+                rs.getString("nomeCantor") + "\n" +
                 "Idade: " +
                 rs.getInt("idade") + "\n" +
                 "======================================="
@@ -118,12 +120,12 @@ public class Cantor {
         select.close();
     }
 
-    public static void update(int id, String nomeCalendario, int idade) throws Exception {
+    public static void update(int id, String nomeCantor, int idade) throws Exception {
         Connection update = DAO.createConnection();
         PreparedStatement stmt = update.prepareStatement(
             "UPDATE cantor SET nome = ?, idade = ? WHERE id = ?;"
         );
-        stmt.setString(1, "Nome");
+        stmt.setString(1, nomeCantor);
         stmt.setInt(2, idade);
         stmt.setInt(3, id);
         stmt.execute();
@@ -134,7 +136,7 @@ public class Cantor {
     public static void delete(int id) throws Exception {
         Connection delete = DAO.createConnection();
         PreparedStatement stmt = delete.prepareStatement(
-            "DELETE FROM companhia WHERE id = ?;"
+            "DELETE FROM cantor WHERE id = ?;"
         );
         stmt.setInt(1, id);
         stmt.execute();
