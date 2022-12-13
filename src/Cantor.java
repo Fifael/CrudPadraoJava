@@ -18,7 +18,7 @@ public class Cantor {
         this.idade = idade;
 
         PreparedStatement stmt = DAO.createConnection().prepareStatement(
-            "INSERT INTO cantor (idCantor, nomeCantor, idade) VALUES (?,?,?);");
+            "INSERT INTO cantor (id, nomeCantor, idade) VALUES (?,?,?);");
             stmt.setInt(1, id);
             stmt.setString(2, nomeCantor);
             stmt.setInt(3, idade);
@@ -109,7 +109,7 @@ public class Cantor {
             System.out.println(
                 "=======================================" + "\n" +
                 "Id: " + 
-                rs.getInt("idCantor") + "\n" +
+                rs.getInt("id") + "\n" +
                 "Nome: " +
                 rs.getString("nomeCantor") + "\n" +
                 "Idade: " +
@@ -123,7 +123,7 @@ public class Cantor {
     public static void update(int id, String nomeCantor, int idade) throws Exception {
         Connection update = DAO.createConnection();
         PreparedStatement stmt = update.prepareStatement(
-            "UPDATE cantor SET nome = ?, idade = ? WHERE id = ?;"
+            "UPDATE cantor SET nomeCantor = ?, idade = ? WHERE id = ?;"
         );
         stmt.setString(1, nomeCantor);
         stmt.setInt(2, idade);

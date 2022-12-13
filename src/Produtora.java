@@ -119,7 +119,7 @@ public class Produtora {
             System.out.println(
                 "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + "\n" +
                 "Id: " + 
-                rs.getInt("id") + "\n" +
+                rs.getInt("idProdutora") + "\n" +
                 "Nome Produtora: " +  
                 rs.getString("nomeProdutora") + "\n" + 
                 "genero: " +
@@ -153,7 +153,7 @@ public class Produtora {
     public static void delete(int id) throws Exception{
         Connection delete = DAO.createConnection();
         PreparedStatement stmt = delete.prepareStatement(
-            "DELETE FROM produtora WHERE id = ?;"
+            "DELETE FROM produtora WHERE idProdutora = ?;"
         );
         stmt.setInt(1, id);
         stmt.execute();

@@ -117,6 +117,16 @@ public class Conexao {
                 }    
             } 
 
+            public static void removerProdutora(Scanner scanner){ 
+                try {
+                System.out.println("Digite o id da produtora que deseja excluir: ");
+                int id = scanner.nextInt();
+                Produtora.delete(id);
+                } catch (Exception e) {
+                System.out.println("Erro ao excluir produtora" + "\n" + e.getMessage());
+                }
+            } 
+
             public static void removerCantor(Scanner scanner){ 
                 try {
                 System.out.println("Digite o id do Cantor que deseja excluir: ");
@@ -127,15 +137,7 @@ public class Conexao {
                 }
             }
 
-            public static void removerProdutora(Scanner scanner){ 
-                try {
-                System.out.println("Digite o id do Cantor que deseja excluir: ");
-                int id = scanner.nextInt();
-                Produtora.delete(id);
-                } catch (Exception e) {
-                System.out.println("Erro ao excluir avião" + "\n" + e.getMessage());
-                }
-            } 
+            
 
             public static void editarProdutora(Scanner scanner) throws Exception{
                 System.out.println("Digite o id: ");
