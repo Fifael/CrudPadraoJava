@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Conexao {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -7,18 +8,19 @@ public class Conexao {
         System.out.println("CRUD");
         System.out.println("Bem vindo ao Cadastro de cantor no Grupo FORGET");
             do {
-                System.out.println("||||||||||||||||||||||||||||||||");
-                System.out.println("||   O que deseja fazer?      ||");
-                System.out.println("||  1 - Cadastrar Produtora   ||");
-                System.out.println("||  2 - Cadastrar Cantor      ||");
-                System.out.println("||  3 - Listar    Produtora   ||");
-                System.out.println("||  4 - Listar    Cantor      ||");
-                System.out.println("||  5 - Remover   Produtora   ||");
-                System.out.println("||  6 - Remover   Cantor      ||");         
-                System.out.println("||  7 - Editar    Produtora   ||");         
-                System.out.println("||  8 - Editar    Cantor      ||");         
-                System.out.println("||  9 - Sair                  ||");
-                System.out.println("||||||||||||||||||||||||||||||||");
+                System.out.println("=|==============================|=");
+                System.out.println("=|=   O que deseja fazer?      =|=");
+                System.out.println("=|=  1 - Cadastrar Produtora   =|=");
+                System.out.println("=|=  2 - Cadastrar Cantor      =|=");
+                System.out.println("=|=  3 - Listar    Produtora   =|=");
+                System.out.println("=|=  4 - Listar    Cantor      =|=");
+                System.out.println("=|=  5 - Remover   Produtora   =|=");
+                System.out.println("=|=  6 - Remover   Cantor      =|=");         
+                System.out.println("=|=  7 - Editar    Produtora   =|=");         
+                System.out.println("=|=  8 - Editar    Cantor      =|=");         
+                System.out.println("=|=  9 - Aparecer interface    =|=");         
+                System.out.println("=|=  10 - Sair                 =|=");
+                System.out.println("=|==============================|=");
                 System.out.print("Opção: ");
                 try {
                     opcao = scanner.nextInt();
@@ -59,13 +61,16 @@ public class Conexao {
                         }
                         break;
                     case 9:
+                        Claudia();
+                    break;    
+                    case 10:
                         sair();
                         break;
                     default:
                         System.out.println("Opção inválida!");
                         break;
                 }
-            } while (opcao != 9);
+            } while (opcao != 10);
         }
             
             public static void cadastrarProdutora (Scanner scanner){
@@ -134,9 +139,7 @@ public class Conexao {
                 System.out.println("Erro ao excluir Cantor, Caso tenha gravado cantor em um produtora, exclua a produtora primeiro" + "\n" + e.getMessage());
                 }
             }
-
-            
-
+       
             public static void editarProdutora(Scanner scanner) throws Exception{
                 System.out.println("Digite o id: ");
                 int id = scanner.nextInt();
@@ -162,6 +165,14 @@ public class Conexao {
                 Cantor.update(id, nomeCantor, idade);
             }
 
+            public static void Claudia () {
+                try {
+                    Claudialinda.main(null);
+                } catch (Exception e) {
+                    System.out.println("Erro ao mostrar interface" + "\n" + e.getMessage());
+                }    
+            } 
+            
             public static void sair() {
                 System.out.println("Saindo...");
                 System.exit(0);
