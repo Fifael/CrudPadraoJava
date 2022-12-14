@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class Claudialinda extends JFrame {
 
-    private ImageIcon imageIcon = new ImageIcon("crud/claudia.png");
+    private ImageIcon imageIcon = new ImageIcon("src/claudia.png");
     private JRadioButton linda, clamaisMenos, sim, nao;
     private ButtonGroup grupo1, grupo2;
     private RadioButtonHandler handler;
