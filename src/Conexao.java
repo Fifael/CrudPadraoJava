@@ -60,6 +60,7 @@ public class Conexao {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        break;
                     case 9:
                         sair();
                         break;
