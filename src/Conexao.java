@@ -131,7 +131,7 @@ public class Conexao {
                 int id = scanner.nextInt();
                 Cantor.delete(id);
                 } catch (Exception e) {
-                System.out.println("Erro ao excluir avião" + "\n" + e.getMessage());
+                System.out.println("Erro ao excluir Cantor, Caso tenha gravado cantor em um produtora, exclua a produtora primeiro" + "\n" + e.getMessage());
                 }
             }
 
