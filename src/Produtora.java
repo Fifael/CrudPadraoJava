@@ -117,7 +117,7 @@ public class Produtora {
         );
         while (rs.next()) {
             System.out.println(
-                "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" + "\n" +
+                "=======================================" + "\n" +
                 "Id: " + 
                 rs.getInt("idProdutora") + "\n" +
                 "Nome Produtora: " +  
@@ -128,7 +128,7 @@ public class Produtora {
                 rs.getString("cidade") + "\n" +
                 "Id do Cantor: " +
                 rs.getInt("cantor_id") + "\n" +
-                "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+                "=======================================" + "\n" 
             );
         }
         rs.close();
@@ -138,7 +138,7 @@ public class Produtora {
     public static void update(int id, String nomeProdutora, String genero, String cidade,  Cantor cantor, int idCantor) throws Exception{
         Connection update = DAO.createConnection();
         PreparedStatement stmt = update.prepareStatement(
-            "UPDATE produtora SET nomeProdutora = ?, genero = ?, cidade = ?, cantor_id = ? WHERE id = ?;"
+            "UPDATE produtora SET nomeProdutora = ?, genero = ?, cidade = ?, cantor_id = ? WHERE idProdutora = ?;"
         );
         stmt.setString(1, nomeProdutora);
         stmt.setString(2, genero);
